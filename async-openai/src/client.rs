@@ -225,7 +225,7 @@ impl<C: Config> Client<C> {
     }
 
     /// Make a POST request to {path} and deserialize the response body
-    pub(crate) async fn post<I, O>(&self, path: &str, request: I) -> Result<O, OpenAIError>
+    pub async fn post<I, O>(&self, path: &str, request: I) -> Result<O, OpenAIError>
     where
         I: Serialize,
         O: DeserializeOwned,
