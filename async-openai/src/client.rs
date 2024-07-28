@@ -19,8 +19,8 @@ use crate::{
 /// Client is a container for config, backoff and http_client
 /// used to make API calls.
 pub struct Client<C: Config> {
-    pub http_client: reqwest::Client,
-    pub config: C,
+    http_client: reqwest::Client,
+    config: C,
     backoff: backoff::ExponentialBackoff,
 }
 
