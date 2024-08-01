@@ -140,7 +140,7 @@ impl<C: Config> Client<C> {
     }
 
     /// Make a GET request to {path} and deserialize the response body
-    pub(crate) async fn get<O>(&self, path: &str) -> Result<O, OpenAIError>
+    pub async fn get<O>(&self, path: &str) -> Result<O, OpenAIError>
     where
         O: DeserializeOwned,
     {
@@ -157,7 +157,7 @@ impl<C: Config> Client<C> {
     }
 
     /// Make a GET request to {path} with given Query and deserialize the response body
-    pub(crate) async fn get_with_query<Q, O>(&self, path: &str, query: &Q) -> Result<O, OpenAIError>
+    pub async fn get_with_query<Q, O>(&self, path: &str, query: &Q) -> Result<O, OpenAIError>
     where
         O: DeserializeOwned,
         Q: Serialize + ?Sized,
