@@ -139,6 +139,10 @@ impl<C: Config> Client<C> {
         &self.config
     }
 
+    pub fn http_client(&self) -> &reqwest::Client {
+        &self.http_client
+    }
+
     /// Make a GET request to {path} and deserialize the response body
     pub async fn get<O>(&self, path: &str) -> Result<O, OpenAIError>
     where
