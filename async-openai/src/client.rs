@@ -362,7 +362,7 @@ impl<C: Config> Client<C> {
     }
 
     /// Make HTTP POST request to receive SSE
-    pub(crate) async fn post_stream<I, O>(
+    pub async fn post_stream<I, O>(
         &self,
         path: &str,
         request: I,
