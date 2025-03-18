@@ -442,6 +442,11 @@ where
         while let Some(ev) = event_source.next().await {
             match ev {
                 Err(e) => {
+                    if e.to_string() == "Stream ended" {
+                        // Google API returns this error when the stream is ended
+                        break;
+                    }
+
                     if let Err(_e) = tx.send(Err(OpenAIError::StreamError(e.to_string()))) {
                         // rx dropped
                         break;
